@@ -13,21 +13,27 @@ from setuptools import find_packages as _find_packages, setup as _setup
 
 NAME_NOPREFIX = 'http-common'
 
-NAME = 'nisavid-' + NAME_NOPREFIX
+NAME = 'Spruce-' + NAME_NOPREFIX
 
-VERSION = '0'
+VERSION = '0.1.0'
 
 SITE_URI = ''
 
-DESCRIPTION = 'Hypertext transfer protocol (HTTP), common components.'
+DESCRIPTION = 'Hypertext transfer protocol (HTTP), common components'
 
-LONG_DESCRIPTION = DESCRIPTION + '''
+README_FILE = 'README.rst'
+with open(README_FILE, 'r') as _file:
+    README = _file.read()
 
-This is an extension of the parts of Python's httplib module that are
-common to both sides (client and server) of HTTP communications.
-'''
+CHANGES_FILE = 'CHANGES.rst'
+with open(CHANGES_FILE, 'r') as _file:
+    CHANGES = _file.read()
 
-LICENSE = 'LGPLv3'
+LICENSE_FILE = 'LICENSE'
+with open(LICENSE_FILE, 'r') as _file:
+    LICENSE = _file.read()
+
+LONG_DESCRIPTION = '\n\n'.join((README, CHANGES))
 
 TROVE_CLASSIFIERS = \
     ('Development Status :: 5 - Production/Stable',
@@ -56,7 +62,7 @@ DEPS_SEARCH_URIS = ()
 
 # packages --------------------------------------------------------------------
 
-PARENT_NAMESPACE_PKG = 'nisavid'
+PARENT_NAMESPACE_PKG = 'spruce'
 
 ROOT_PKG = '.'.join((PARENT_NAMESPACE_PKG, NAME_NOPREFIX))
 

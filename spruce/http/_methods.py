@@ -55,6 +55,6 @@ METHODS = ('CONNECT', 'DELETE', 'HEAD', 'GET', 'OPTIONS', 'PATCH', 'POST',
 """The standard HTTP methods.
 
 .. note:: **TODO:**
-    convert to an :class:`~nisavid.lang._datatypes._misc.enum`
+    convert to an :class:`~spruce.lang._datatypes._misc.enum`
 
 """

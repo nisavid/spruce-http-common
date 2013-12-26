@@ -3,8 +3,8 @@
 __copyright__ = "Copyright (C) 2013 Ivan D Vasin and Cogo Labs"
 __docformat__ = "restructuredtext"
 
-from collections import Mapping
-import httplib
+from collections import Mapping as _Mapping
+import httplib as _http
 
 
 # 1xx informational -------------------------------------------------------
@@ -87,7 +87,7 @@ NETWORK_READ_TIMEOUT_ERROR = 598
 NETWORK_CONNECT_TIMEOUT_ERROR = 599
 
 
-class _StatusMessages(Mapping):
+class _StatusMessages(_Mapping):
 
     def __new__(cls):
         if cls._inst is None:
@@ -95,11 +95,11 @@ class _StatusMessages(Mapping):
         return cls._inst
 
     def __init__(self):
-        self._keys = set(httplib.responses.keys() + self._responses.keys())
+        self._keys = set(_http.responses.keys() + self._responses.keys())
 
     def __getitem__(self, code):
         try:
-            return httplib.responses[code]
+            return _http.responses[code]
         except KeyError:
             return self._responses[code]
 
@@ -146,6 +146,15 @@ class _StatusMessages(Mapping):
 
 
 status_messages = _StatusMessages()
+
+
+def status_str(code):
+    try:
+        message = status_messages[code]
+    except KeyError:
+        return str(code)
+    else:
+        return '{} ({})'.format(message, code)
 
 
 def statuscode_def_source(code):
