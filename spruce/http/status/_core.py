@@ -15,6 +15,8 @@ SWITCHING_PROTOCOLS = 101
 
 PROCESSING = 102
 
+INFORMATIONAL_STATUSES = (CONTINUE, SWITCHING_PROTOCOLS, PROCESSING)
+
 
 # 2xx success -----------------------------------------------------------------
 
@@ -38,6 +40,10 @@ ALREADY_REPORTED = 208
 
 IM_USED = 226
 
+SUCCESS_STATUSES = (OK, CREATED, ACCEPTED, NON_AUTHORITATIVE_INFORMATION,
+                    NO_CONTENT, RESET_CONTENT, PARTIAL_CONTENT, MULTI_STATUS,
+                    ALREADY_REPORTED, IM_USED)
+
 
 # 3xx redirection -------------------------------------------------------------
 
@@ -58,6 +64,10 @@ SWITCH_PROXY = 306
 TEMPORARY_REDIRECT = 307
 
 PERMANENT_REDIRECT = 308
+
+REDIRECTION_STATUSES = (MULTIPLE_CHOICES, MOVED_PERMANENTLY, FOUND, SEE_OTHER,
+                        NOT_MODIFIED, USE_PROXY, SWITCH_PROXY,
+                        TEMPORARY_REDIRECT, PERMANENT_REDIRECT)
 
 
 # 4xx client error ------------------------------------------------------------
@@ -128,6 +138,41 @@ BLOCKED_BY_WINDOWS_PARENTAL_CONTROLS = 450
 
 CLIENT_CLOSED_REQUEST = 499
 
+CLIENT_ERROR_STATUSES = (BAD_REQUEST,
+                         UNAUTHORIZED,
+                         PAYMENT_REQUIRED,
+                         FORBIDDEN,
+                         NOT_FOUND,
+                         METHOD_NOT_ALLOWED,
+                         NOT_ACCEPTABLE,
+                         PROXY_AUTHENTICATION_REQUIRED,
+                         REQUEST_TIMEOUT,
+                         CONFLICT,
+                         GONE,
+                         LENGTH_REQUIRED,
+                         PRECONDITION_FAILED,
+                         REQUEST_ENTITY_TOO_LARGE,
+                         REQUEST_URI_TOO_LONG,
+                         UNSUPPORTED_MEDIA_TYPE,
+                         REQUESTED_RANGE_NOT_SATISFIABLE,
+                         EXPECTATION_FAILED,
+                         IM_A_TEAPOT,
+                         ENHANCE_YOUR_CALM,
+                         UNPROCESSABLE_ENTITY,
+                         LOCKED,
+                         FAILED_DEPENDENCY,
+                         METHOD_FAILURE,
+                         UNORDERED_COLLECTION,
+                         UPGRADE_REQUIRED,
+                         PRECONDITION_REQUIRED,
+                         TOO_MANY_REQUESTS,
+                         REQUEST_HEADER_FIELDS_TOO_LARGE,
+                         NO_RESPONSE,
+                         RETRY_WITH,
+                         BLOCKED_BY_WINDOWS_PARENTAL_CONTROLS,
+                         CLIENT_CLOSED_REQUEST,
+                         )
+
 
 # 5xx server error ------------------------------------------------------------
 
@@ -158,6 +203,22 @@ NETWORK_AUTHENTICATION_REQUIRED = 511
 NETWORK_READ_TIMEOUT_ERROR = 598
 
 NETWORK_CONNECT_TIMEOUT_ERROR = 599
+
+SERVER_ERROR_STATUSES = (INTERNAL_SERVER_ERROR,
+                         NOT_IMPLEMENTED,
+                         BAD_GATEWAY,
+                         SERVICE_UNAVAILABLE,
+                         GATEWAY_TIMEOUT,
+                         HTTP_VERSION_NOT_SUPPORTED,
+                         VARIANT_ALSO_NEGOTIATES,
+                         INSUFFICIENT_STORAGE,
+                         LOOP_DETECTED,
+                         BANDWIDTH_LIMIT_EXCEEDED,
+                         NOT_EXTENDED,
+                         NETWORK_AUTHENTICATION_REQUIRED,
+                         NETWORK_READ_TIMEOUT_ERROR,
+                         NETWORK_CONNECT_TIMEOUT_ERROR,
+                         )
 
 
 class _StatusMessages(_Mapping):
